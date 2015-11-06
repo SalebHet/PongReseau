@@ -68,10 +68,7 @@ public abstract class PongItem {
 		this.sprite = sprite;
 	}
 	
-	protected void Move(){
-		this.posX += this.speedX;
-		this.posY += this.speedY;
-	}
+	
 	
 	protected boolean collision(PongItem b){
 		if( ((this.posX + this.width) >= b.posX) && ((this.posY <= (b.posY + b.height)) && (this.posY >= b.posY)) ||
