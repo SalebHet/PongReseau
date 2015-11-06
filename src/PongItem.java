@@ -68,8 +68,24 @@ public abstract class PongItem {
 		this.sprite = sprite;
 	}
 	
-	void Move(){
+	protected void Move(){
 		this.posX += this.speedX;
 		this.posY += this.speedY;
 	}
+	
+	protected boolean collision(PongItem b){
+		if( ((this.posX + this.width) >= b.posX) && ((this.posY <= (b.posY + b.height)) && (this.posY >= b.posY)) ||
+				(((this.posY + this.height) >= b.posY) && ((this.posY + this.height) <= (b.posY + b.height))))
+			return true;
+		if ( ((this.posX <= (b.posX + b.width)) && ((this.posY <= (b.posY + b.height)) && (this.posY >= b.posY)) ||
+				(((this.posY + this.height) >= b.posY) && ((this.posY + this.height) <= (b.posY + b.height)))))
+			return true;
+		return false;
+	}
+	
+	protected void move(){
+		posX += speedX;
+		posY += speedY;
+	}
+	
 }
