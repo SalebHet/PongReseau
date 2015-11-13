@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public abstract class PongItem {
 	
@@ -9,7 +10,17 @@ public abstract class PongItem {
 	protected int height;
 	protected int speedX;
 	protected int speedY;
-	protected Image sprite; // a débattre
+	protected ImageIcon sprite; // a débattre
+	
+	protected PongItem (String Image, int posX, int posY){
+		this.sprite = new ImageIcon(Image);
+		this.posX = posX;
+		this.posY = posY;
+		this.height = sprite.getIconHeight();
+		this.width = sprite.getIconWidth();
+		this.speedX = 0;
+		this.speedY = 0;
+	}
 	
 
 	public int getPosX() {
@@ -61,11 +72,11 @@ public abstract class PongItem {
 	}
 
 	public Image getSprite() {
-		return sprite;
+		return sprite.getImage();
 	}
 
-	public void setSprite(Image sprite) {
-		this.sprite = sprite;
+	public void setSprite(String sprite) {
+		this.sprite = new ImageIcon(sprite);
 	}
 	
 	
