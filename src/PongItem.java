@@ -3,13 +3,13 @@ import java.awt.Image;
 
 public abstract class PongItem {
 	
-	private int posX;
-	private int posY;
-	private int width;
-	private int height;
-	private int speedX;
-	private int speedY;
-	private Image sprite; // a débattre
+	protected int posX;
+	protected int posY;
+	protected int width;
+	protected int height;
+	protected int speedX;
+	protected int speedY;
+	protected Image sprite; // a débattre
 	
 
 	public int getPosX() {
