@@ -5,25 +5,15 @@ public class Ball extends PongItem {
 		super(Image, posX, posY);
 	}
 	
-	private Ball ball = new PongItem();
-	
-	private Point ball_position = new Point(0, 0);
-	
-	ball_position.translate(this.getSpeedX(), this.getSpeedY());
-	
-	public void animate() {
-		
-		if (this.getPosY() > SIZE_PONG_Y - this.getHeight()){
-			this.setPosY(SIZE_PONG_Y - this.getHeight());
-			this.setSpeedY(- this.getSpeedY());
+	public void rebound (PongItem t[]) {
+		for (int i=0; i<t.length; i++) {
+			if (collision(t[i])) {
+				setSpeedX(- this.getSpeedX());
+			}
 		}
-	
-		if (this.getPosY() < SIZE_PONG_Y + this.getHeight()){
-			this.setPosY(SIZE_PONG_Y + this.getHeight());
-			this.setSpeedY(- this.getSpeedY());
-		}
-		
-		if (collision(ball)){
-			this.setSpeedX(- this.getSpeedX);
+		if (this.getPosY() == 0 || this.getPosY() == 600) {
+			setSpeedY(- this.getSpeedY());
 		}
 	}
+	}
+
