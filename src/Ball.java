@@ -14,6 +14,7 @@ public class Ball extends PongItem {
 		if (this.getPosY() == 0 || this.getPosY() == 600) {
 			setSpeedY(- this.getSpeedY());
 		}
+		//
 	}
 	}
 
